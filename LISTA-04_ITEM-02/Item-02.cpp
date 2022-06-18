@@ -1,8 +1,6 @@
 #include <iostream>
 #include <queue>
 
-//using namespace std;
-
 class Pilha2F
 {
 public:
@@ -69,18 +67,6 @@ int main()
         std::cout << "\nPILHA 2F: " << p->topo() << std::endl;
         p->desempilha();
     }
-
-    /*std::cout << "\n\nTamanho da Fila 01: " << fila1.size() << "\n\n";
-
-    while (!fila2.empty())
-    {
-        std::cout << "\nValores da Fila 02: " << fila2.front();
-        fila2.pop();
-    }
-
-    std::cout << "\n\nTamanho da Fila 02: " << fila2.size() << "\n\n";
-
-    std::cout << "\nTamanho da Fila 01: " << fila1.size() << " | Tamanho da Fila 02: " << fila2.size() << "\n";*/
 
     return 0;
 }
