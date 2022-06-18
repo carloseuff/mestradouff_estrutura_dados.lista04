@@ -66,11 +66,11 @@ int main()
     Deque1 *p = new Deque1();
 
     p->cria();
-    p->insere_inicio('A');
+    p->insere_fim('p');
+    p->insere_inicio('k');
+    p->insere_fim('A');
     p->insere_inicio('B');
-    p->insere_fim('E');
-    p->insere_fim('D');
-    p->insere_inicio('g');
+    p->insere_fim('C');
 
     cout << "\nValor de FIM------:" << p->fim+p->N << endl;
     cout << "\nValor de N........:" << p->N << endl;
@@ -83,6 +83,7 @@ int main()
         cout << "\nFrente da Fila..:" << p->ver_inicio() << endl;
         cout << "Fim da Fila..:" << p->ver_fim() << endl;
         cout << "\nValor de FIM------:" << p->N << endl;
+        //p->remove_inicio();
         p->remove_fim();
     }
     cout <<endl << "================================================" << endl;
