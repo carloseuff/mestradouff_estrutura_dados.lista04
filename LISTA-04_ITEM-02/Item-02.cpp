@@ -1,94 +1,86 @@
 #include <iostream>
+#include <queue>
 
-constexpr int MAXN = 5; // capacidade máxima do deque
+//using namespace std;
 
-using namespace std;
-
-class Deque1
+class Pilha2F
 {
 public:
-    char elementos[MAXN];
-    int N; 
-    int inicio;
-    int fim;
+    std::queue<char> f1;
+    std::queue<char> f2;
 
-    void cria()
+    char topo()
     {
-        this->N = 0;
-        this->inicio = 0;
-        this->fim = 0;
+    return this->f1.front();
     }
 
-    char ver_inicio()
+    char desempilha()
     {
-        return this->elementos[inicio];
+    char r = this->f1.front();
+    this->f1.pop();
+    return r;
     }
 
-    void insere_inicio(char dado) 
+    void empilha(char dado)
     {
-        this->elementos[fim] = dado;
-        this->fim = (fim + 1) % MAXN;
-        this->N++;
+      while (!f1.empty())
+      {
+        this->f2.push(f1.front());
+        this->f1.pop();
+      }
+    f1.push(dado);
+
+    while (!f2.empty())
+    {
+        this->f1.push(f2.front());
+        this->f2.pop();
+    }
     }
 
-    char remove_inicio()
+    bool filas_vazia()
     {
-        char r = this->elementos[inicio];
-        this->inicio = (inicio + 1) % MAXN;
-        this->N--;
-        return r;
-    }
-
-    char ver_fim()
-    {
-        return this->elementos[N + inicio - 1];
-    }
-
-    void insere_fim(char dado)
-    {
-        this->elementos[fim] = dado;
-        this->fim = (fim + 1) % MAXN;
-        this->N++;
-    }
-
-    char remove_fim()
-    {
-        char r = this->elementos[fim];
-        this->fim = (fim + 1) % MAXN;
-        this->N--;
-        return r;
+    return this->f1.empty() && f2.empty();
     }
 };
 
 int main()
 {
 
-    Deque1 *p = new Deque1();
+    Pilha2F *p = new Pilha2F();
 
-    p->cria();
-    p->insere_fim('p');
-    p->insere_inicio('k');
-    p->insere_fim('A');
-    p->insere_inicio('B');
-    p->insere_fim('C');
+    p->empilha('a');
+     p->desempilha();
+    p->empilha('b');
+     p->desempilha();
+    p->empilha('c');
+     p->desempilha();
+    p->empilha('d');
+    p->empilha('e');
+    p->desempilha();
+    p->empilha('e');
+    p->desempilha();
+    p->empilha('e');
 
-    cout << "\nValor de FIM------:" << p->fim+p->N << endl;
-    cout << "\nValor de N........:" << p->N << endl;
-    cout << "\nValor de INICIO...:" << p->inicio << endl;
+    //std::cout << "\nPILHA 2F: " << p->topo() << std::endl;*/
 
-    cout << "================================================" << endl;
-
-    while (p->N > 0)
+    //while (!p->filas_vazia())
+    while (!(p->f1.empty() && p->f2.empty()))
     {
-        cout << "\nFrente da Fila..:" << p->ver_inicio() << endl;
-        cout << "Fim da Fila..:" << p->ver_fim() << endl;
-        cout << "\nValor de FIM------:" << p->N << endl;
-        //p->remove_inicio();
-        p->remove_fim();
+        std::cout << "\nPILHA 2F: " << p->topo() << std::endl;
+        p->desempilha();
     }
-    cout <<endl << "================================================" << endl;
-    cout << "\nValor de FIM------:" << p->fim << endl;
-    cout << "\nValor de N........:" << p->N << endl;
-    cout << "\nValor de INICIO...:" << p->inicio << endl;
+
+    /*std::cout << "\n\nTamanho da Fila 01: " << fila1.size() << "\n\n";
+
+    while (!fila2.empty())
+    {
+        std::cout << "\nValores da Fila 02: " << fila2.front();
+        fila2.pop();
+    }
+
+    std::cout << "\n\nTamanho da Fila 02: " << fila2.size() << "\n\n";
+
+    std::cout << "\nTamanho da Fila 01: " << fila1.size() << " | Tamanho da Fila 02: " << fila2.size() << "\n";*/
+
     return 0;
 }
