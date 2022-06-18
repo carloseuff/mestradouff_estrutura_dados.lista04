@@ -1,15 +1,14 @@
 #include <iostream>
 
-constexpr int MAXN = 5; // capacidade máxima da fila
+constexpr int MAXN = 5; // capacidade máxima do deque
 
 using namespace std;
 
 class Deque1
 {
-private:
 public:
     char elementos[MAXN];
-    int N;
+    int N; 
     int inicio;
     int fim;
 
@@ -25,37 +24,37 @@ public:
         return this->elementos[inicio];
     }
 
-    void insere_inicio(char dado)
+    void insere_inicio(char dado) 
     {
-        this->elementos[fim] = dado;     
-        this->fim++;
+        this->elementos[fim] = dado;
+        this->fim = (fim + 1) % MAXN;
         this->N++;
     }
 
     char remove_inicio()
     {
         char r = this->elementos[inicio];
-        this->inicio++;
+        this->inicio = (inicio + 1) % MAXN;
         this->N--;
         return r;
     }
 
     char ver_fim()
     {
-        return this->elementos[fim-1];
+        return this->elementos[N + inicio - 1];
     }
-    
+
     void insere_fim(char dado)
     {
-        this->elementos[fim] = dado;  
-        this->fim = (fim + 1) % MAXN; 
+        this->elementos[fim] = dado;
+        this->fim = (fim + 1) % MAXN;
         this->N++;
     }
 
     char remove_fim()
     {
         char r = this->elementos[fim];
-        this->fim = (fim + 1) % MAXN; 
+        this->fim = (fim + 1) % MAXN;
         this->N--;
         return r;
     }
@@ -69,30 +68,26 @@ int main()
     p->cria();
     p->insere_inicio('A');
     p->insere_inicio('B');
-    p->insere_inicio('C');
-    p->insere_inicio('D');
-    p->insere_inicio('E');
-    p->insere_inicio('f');
+    p->insere_fim('E');
+    p->insere_fim('D');
     p->insere_inicio('g');
 
-    /*p->cria();
-    p->insere_fim('e');
-    p->insere_fim('d');
-    p->insere_fim('c');
-    p->insere_fim('b');
-    p->insere_fim('a');*/
+    cout << "\nValor de FIM------:" << p->fim+p->N << endl;
+    cout << "\nValor de N........:" << p->N << endl;
+    cout << "\nValor de INICIO...:" << p->inicio << endl;
 
-    cout << "\nValor de N..:" << p->fim << endl;
-
-    // cout << "\nFim da Fila..:" << p->ver_fim();
+    cout << "================================================" << endl;
 
     while (p->N > 0)
     {
-        // cout << "\nFrente da Fila..:" << p->remove_fim();
-        // cout << "\nFim da Fila..:" << p->ver_fim();
-        cout << "\nFrente da Fila..:" << p->ver_inicio() <<"\n | Fim da Fila..:" << p->ver_fim()<<"\n";
-        p->remove_inicio();
+        cout << "\nFrente da Fila..:" << p->ver_inicio() << endl;
+        cout << "Fim da Fila..:" << p->ver_fim() << endl;
+        cout << "\nValor de FIM------:" << p->N << endl;
+        p->remove_fim();
     }
-
+    cout <<endl << "================================================" << endl;
+    cout << "\nValor de FIM------:" << p->fim << endl;
+    cout << "\nValor de N........:" << p->N << endl;
+    cout << "\nValor de INICIO...:" << p->inicio << endl;
     return 0;
 }
