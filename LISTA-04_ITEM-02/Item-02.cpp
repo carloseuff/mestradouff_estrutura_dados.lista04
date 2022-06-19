@@ -1,13 +1,18 @@
 #include <iostream>
 #include <queue>
 
-class Pilha2F
+class Pilha2F // Implementação da PilhaTAD com as sentenças propostas na Atividade.
 {
 public:
-    std::queue<char> f1;
-    std::queue<char> f2;
+    
+    // Declaração de variáveis.
 
-    char topo()
+    std::queue<char> f1; // Fila de elementos tipo char.
+    std::queue<char> f2; // Fila de elementos tipo char.
+
+    // Instanciação das funções.
+
+    char topo() 
     {
     return this->f1.front();
     }
