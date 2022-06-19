@@ -17,35 +17,35 @@ public:
 
    // Declaração das Funções.
    
-    void cria() // inicialização  do deque, zerando o número de elementos.
+    void cria() // inicialização zerando o número de elementos/inicio/fim do deque.
     {
-        this->N = 0;
+        this->N = 0; 
         this->inicio = 0;
         this->fim = 0;
     }
 
     char ver_inicio() // Função/Método para retorna o valor do elemento no início.
     {
-        return this->elementos[inicio];
+        return this->elementos[inicio]; // Retorna o valor do elemento no início.
     }
 
     void insere_inicio(char dado) // Função/Método para inseri no início  do deque o elemento "dado" tipo 'char'.
     {
-        this->elementos[fim] = dado;
+        this->elementos[fim] = dado; // Insere o 'dado' no elemento fim.
         this->fim = (fim + 1) % MAXN; /* O Elemento fim é incrementado com o resto da divisão entre o valor de fim (atualizado no laço) 
                                      + o valor Máximo de elementos MAXN, dessa forma é garantida que a Função/Método ultrapasse 
                                      o número de elementos do vetor elementos, pois se torna uma estratégia circular no Vetor, 
                                      caso o número de inserções for maior que MAXN.*/
-        this->N++;
+        this->N++; // Incrementa o número de elementos.
     }
 
-    char remove_inicio() // Função/Método para Remover no início  do deque o elemento "dado" tipo 'char'.
+    char remove_inicio() // Função/Método para Remover no início do deque o elemento "dado" tipo 'char'.
     {
-        char r = this->elementos[inicio];
+        char r = this->elementos[inicio]; // Armazena na variável 'r' o valor do elemento no início.
         this->inicio = (inicio + 1) % MAXN; /*Idem da Explicação anteriopr para o %MAXN (resto da divisão entre o valor de fim 
                                             (atualizado no laço) + o valor Máximo de elementos MAXN).*/
-        this->N--;
-        return r;
+        this->N--; // Decrementa o número de elementos.
+        return r; // Retorna o valor do elemento no início.
     }
     char ver_fim() // Função/Método para retornar o elemento no fim do Deque.
     {
@@ -55,19 +55,19 @@ public:
 
     void insere_fim(char dado) // Função/Método para inseri no fim do deque o elemento "dado" tipo 'char'.
     {
-        this->elementos[fim] = dado;
+        this->elementos[fim] = dado; // Insere o 'dado' no elemento fim.
         this->fim = (fim + 1) % MAXN;/*Idem da Explicação anteriopr para o %MAXN (resto da divisão entre o valor de fim 
                                      (atualizado no laço) + o valor Máximo de elementos MAXN).*/
-        this->N++;
+        this->N++;  // Incrementa o número de elementos.
     }
 
     char remove_fim() // Função/Método para remover no fim do deque o elemento "dado" tipo 'char'.
     {
-        char r = this->elementos[fim];
+        char r = this->elementos[fim]; // Armazena na variável 'r' o valor do elemento no fim.
         this->fim = (fim + 1) % MAXN;/*Idem da Explicação anteriopr para o %MAXN (resto da divisão entre o valor de fim 
                                      (atualizado no laço) + o valor Máximo de elementos MAXN).*/
-        this->N--;
-        return r;
+        this->N--; // Decrementa o número de elementos.
+        return r; // Retorna o valor do elemento no fim.
     }
 };
 
