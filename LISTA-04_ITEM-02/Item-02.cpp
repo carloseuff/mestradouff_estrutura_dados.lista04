@@ -7,42 +7,38 @@ public:
     
     // Declaração de variáveis.
 
-    std::queue<char> f1; // Fila de elementos tipo char.
-    std::queue<char> f2; // Fila de elementos tipo char.
+    std::queue<char> f1; // Fila 1 de elementos tipo char.
+    std::queue<char> f2; // Fila 2 de elementos tipo char.
 
     // Instanciação das funções.
 
-    char topo() 
+    char topo() // Função/Método para retorna o valor do elemento no início da Pilha.
     {
     return this->f1.front();
     }
 
-    char desempilha()
+    char desempilha() // Função/Método para remover o valor do elemento no fim da Pilha.
     {
-    char r = this->f1.front();
-    this->f1.pop();
-    return r;
+    char r = this->f1.front(); //Aqui é armazanado o valor do elemento removido numa variável auxiliar tipo 'char', para um posterior retorno.
+    this->f1.pop(); //Remove o 1º elemento da Fila 1.
+    return r; // variável auxiliar tipo 'char'retornada.
     }
 
-    void empilha(char dado)
+    void empilha(char dado) // Função/Método para inserir (criar a Pilha) o valor do elemento na Pilha.
     {
-      while (!f1.empty())
+      while (!f1.empty()) // Laço de repetição (Enquanto a Fila 1 não estiver vazia) - o elemento tipo 'char' dado é inserido na Fila 2.
       {
-        this->f2.push(f1.front());
-        this->f1.pop();
+        this->f2.push(f1.front()); // Fila 2 recebe o valor do 1º elemento da Fila 1.
+        this->f1.pop(); // Remove o 1º elemento da Fila 1.
       }
-    f1.push(dado);
+    
+    f1.push(dado); // Insere outro novo elemento tipo 'char' dado na Fila 1.
 
-    while (!f2.empty())
+    while (!f2.empty()) // Laço de repetição (Enquanto a Fila 2 não estiver vazia) - o elemento tipo 'char' dado é inserido na Fila 01.
     {
-        this->f1.push(f2.front());
-        this->f2.pop();
+        this->f1.push(f2.front());// Fila 1 recebe o valor do 1º elemento da Fila 2.
+        this->f2.pop(); // Remove o 1º elemento da Fila 2.
     }
-    }
-
-    bool filas_vazia()
-    {
-    return this->f1.empty() && f2.empty();
     }
 };
 
@@ -52,11 +48,11 @@ int main()
     Pilha2F *p = new Pilha2F();
 
     p->empilha('a');
-     p->desempilha();
+    p->desempilha();
     p->empilha('b');
-     p->desempilha();
+    p->desempilha();
     p->empilha('c');
-     p->desempilha();
+    p->desempilha();
     p->empilha('d');
     p->empilha('e');
     p->desempilha();
@@ -64,9 +60,6 @@ int main()
     p->desempilha();
     p->empilha('e');
 
-    //std::cout << "\nPILHA 2F: " << p->topo() << std::endl;*/
-
-    //while (!p->filas_vazia())
     while (!(p->f1.empty() && p->f2.empty()))
     {
         std::cout << "\nPILHA 2F: " << p->topo() << std::endl;
