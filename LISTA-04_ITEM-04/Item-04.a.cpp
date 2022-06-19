@@ -8,7 +8,7 @@ public:
 
 // Declaração da função.
 
-    void inverte(std::stack<char> *p1) // Função/Método para inverter a Pilha, com a utilização de Ponteiro da Pilha.
+    void inverte(std::stack<char> *p1) // Função/Método para inverter a Pilha 'p1', com a utilização de Ponteiro da Pilha 'p1'.
     {
         std::queue<char> f1; // Declaração da Fila 1.
 

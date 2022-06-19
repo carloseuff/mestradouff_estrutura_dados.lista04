@@ -1,28 +1,32 @@
 #include <iostream>
 #include <stack>
 
-class Pilhasx2
+class Pilhasx2 // Implementação da PilhaTAD com as sentenças propostas na Atividade.
 {
 public:
-    void inverte(std::stack<char> *p)
+    
+    // Declaração da função.
+    
+    void inverte(std::stack<char> *p) // Função/Método para inverter a Pilha 'p', com a utilização de Ponteiro da Pilha 'p'.
+    
     {
-        std::stack<char> pA;
-        std::stack<char> pB;
+        std::stack<char> pA; // Declaração da Pilha A.
+        std::stack<char> pB; // Declaração da Pilha B.
 
-        while (!p->empty())
+        while (!p->empty()) // Laço de repetição (Enquanto a Pilha p não estiver vazia) - Pilha A recebe os elementos da Pilha p.
         {
-            pA.push(p->top());
-            p->pop();
+            pA.push(p->top()); // Pilha A recebe o valor do 1º elemento da Pilha p.
+            p->pop(); // Remove o 1º elemento da Pilha p.
         }
-        while (!pA.empty())
+        while (!pA.empty()) // Laço de repetição (Enquanto a Pilha A não estiver vazia) - Pilha p recebe o 1º elemento da Pilha A.
         {
-            pB.push(pA.top());
-            pA.pop();
+            pB.push(pA.top()); // Pilha B recebe o valor do 1º elemento da Pilha A.
+            pA.pop(); // Remove o 1º elemento da Pilha A.
         }
-        while (!pB.empty())
+        while (!pB.empty()) // Laço de repetição (Enquanto a Pilha B não estiver vazia) - Pilha p recebe o 1º elemento da Pilha B.
         {
-            p->push(pB.top());
-            pB.pop();
+            p->push(pB.top()); // Pilha p recebe o valor do 1º elemento da Pilha B.
+            pB.pop(); // Remove o 1º elemento da Pilha B.
         }
     }
 };
