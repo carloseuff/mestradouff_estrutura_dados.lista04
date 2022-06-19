@@ -10,7 +10,7 @@ public:
     std::queue<char> f1; // Fila 1 de elementos tipo char.
     std::queue<char> f2; // Fila 2 de elementos tipo char.
 
-    // Instanciação das funções.
+    // Declaração das Funções.
 
     char topo() // Função/Método para retorna o valor do elemento no início da Pilha.
     {
@@ -21,7 +21,7 @@ public:
     {
     char r = this->f1.front(); //Aqui é armazanado o valor do elemento removido numa variável auxiliar tipo 'char', para um posterior retorno.
     this->f1.pop(); //Remove o 1º elemento da Fila 1.
-    return r; // variável auxiliar tipo 'char'retornada.
+    return r; // Variável 'r' retornada com o 1º elemento da Pilha.
     }
 
     void empilha(char dado) // Função/Método para inserir (criar a Pilha) o valor do elemento na Pilha.

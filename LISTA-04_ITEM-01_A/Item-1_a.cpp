@@ -15,7 +15,7 @@ public:
     int inicio;           // Posição do início.
     int fim;              // Posição do fim.
 
-   // Instanciação das funções.
+   // Declaração das Funções.
    
     void cria() // inicialização  do deque, zerando o número de elementos.
     {
